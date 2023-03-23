@@ -1,0 +1,14 @@
+name: ${project.artifactId}
+version: ${project.version}
+description: Paper Test Plugin
+prefix: ABP
+
+api-version: ${minecraft.version.major}
+
+load: STARTUP
+author: Red_Epicness
+contributors: []
+website: https://github.com/RedEpicness/AnotherBingoPlugin
+
+bootstrapper: ${project.groupId}.AnotherBingoPluginBootstrap
+loader: ${project.groupId}.AnotherBingoPluginLoader
