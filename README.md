@@ -1,0 +1,3 @@
+# Another Bing Plugin
+
+Yes, another one of these...
