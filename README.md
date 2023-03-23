@@ -1,3 +1,3 @@
-# Another Bing Plugin
+# Another Bingo Plugin
 
 Yes, another one of these...
