@@ -14,7 +14,7 @@
         <!--Used for plugin yml api version, so it doesn't complain every major version...-->
         <minecraft.version.major>1.19</minecraft.version.major>
         <minecraft.version>${minecraft.version.major}.4</minecraft.version>
-        <revision>${minecraft.version}-1.1.0</revision>
+        <revision>${minecraft.version}-0.0.1</revision>
 
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
