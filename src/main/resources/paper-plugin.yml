@@ -7,8 +7,9 @@ api-version: ${minecraft.version.major}
 
 load: STARTUP
 author: Red_Epicness
-contributors: []
+contributors: ["AlwaysGuilty"]
 website: https://github.com/RedEpicness/AnotherBingoPlugin
 
+main: ${project.groupId}.AnotherBingoPlugin
 bootstrapper: ${project.groupId}.AnotherBingoPluginBootstrap
 loader: ${project.groupId}.AnotherBingoPluginLoader

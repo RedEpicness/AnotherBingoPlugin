@@ -8,7 +8,7 @@
     <artifactId>AnotherBingoPlugin</artifactId>
     <version>${revision}</version>
 
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <!--Used for plugin yml api version, so it doesn't complain every major version...-->
@@ -97,6 +97,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>${plugin.maven.shade.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("UnstableApiUsage")
-public class AnotherPluginBingoBootstrap implements PluginBootstrap {
+public class AnotherBingoPluginBootstrap implements PluginBootstrap {
 
     @Override
     public void bootstrap(@NotNull PluginProviderContext pluginProviderContext) {
