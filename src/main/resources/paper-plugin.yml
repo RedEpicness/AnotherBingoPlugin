@@ -1,12 +1,12 @@
 name: ${project.artifactId}
 version: ${project.version}
-description: Paper Test Plugin
+description: Another Bingo Plugin
 prefix: ABP
 
-api-version: ${minecraft.version.major}
+api-version: '${minecraft.version.major}'
 
 load: STARTUP
-author: Red_Epicness
+authors: [Red_Epicness]
 contributors: ["AlwaysGuilty"]
 website: https://github.com/RedEpicness/AnotherBingoPlugin
 
