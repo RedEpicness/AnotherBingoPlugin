@@ -13,7 +13,8 @@
     <properties>
         <!--Used for plugin yml api version, so it doesn't complain every major version...-->
         <minecraft.version.major>1.20</minecraft.version.major>
-        <minecraft.version>${minecraft.version.major}.1</minecraft.version>
+        <minecraft.version.minor>1</minecraft.version.minor>
+        <minecraft.version>${minecraft.version.major}.${minecraft.version.minor}</minecraft.version>
         <revision>${minecraft.version}-0.0.1</revision>
 
         <java.version>17</java.version>

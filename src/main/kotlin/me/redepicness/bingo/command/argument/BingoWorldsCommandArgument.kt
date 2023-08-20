@@ -37,8 +37,8 @@ class BingoWorldsCommandArgument(required: Boolean, name: String) : CommandArgum
         override fun suggestions(commandContext: CommandContext<CommandSender>, input: String): List<String> {
             return WorldManager.allWorlds
                     .stream()
-                    .map { w: BingoWorlds -> w.overworld.key.key.substring(6) }
-                    .filter { wk: String -> wk.startsWith(input) }
+                    .map { it.overworld.key.key.substring(6) }
+                    .filter { it.startsWith(input) }
                     .toList()
         }
 

@@ -1,12 +1,13 @@
-package me.redepicness.bingo.goal
+package me.redepicness.bingo.card
 
+import me.redepicness.bingo.goal.BingoGoal
 import me.redepicness.bingo.goal.type.ItemGoal
 import net.kyori.adventure.key.Key
 import org.intellij.lang.annotations.Language
 import org.intellij.lang.annotations.Pattern
 import org.intellij.lang.annotations.Subst
 
-class GoalType<T : BingoGoal<*>> private constructor(@field:Subst("goal-type") @param:Pattern(GOAL_TYPE_PATTERN) val id: String) {
+class CardType<T : BingoGoal<*>> private constructor(@field:Subst("goal-type") @param:Pattern(GOAL_TYPE_PATTERN) val id: String) {
     private val goalsMutable: MutableMap<Key, T> = mutableMapOf()
 
     val goalsMap: Map<Key, T> = goalsMutable
@@ -29,24 +30,10 @@ class GoalType<T : BingoGoal<*>> private constructor(@field:Subst("goal-type") @
         return id
     }
 
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is GoalType<*>) return false
-
-        if (id != other.id) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        return id.hashCode()
-    }
-
-
     companion object {
-        val TYPES = mutableListOf<GoalType<*>>()
+        val TYPES = mutableListOf<CardType<*>>()
         @Language("RegExp")
         const val GOAL_TYPE_PATTERN = "[a-z0-9_\\-.]+"
-        val ITEM = GoalType<ItemGoal>("item")
+        val ITEM = CardType<ItemGoal>("item")
     }
 }

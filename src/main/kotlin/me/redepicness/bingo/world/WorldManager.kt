@@ -5,7 +5,10 @@ import me.redepicness.bingo.util.runTask
 import me.redepicness.bingo.util.runTaskLater
 import me.redepicness.bingo.util.runTaskTimerAsynchronously
 import net.kyori.adventure.util.TriState
-import org.bukkit.*
+import org.bukkit.NamespacedKey
+import org.bukkit.World
+import org.bukkit.WorldCreator
+import org.bukkit.WorldType
 import org.bukkit.scheduler.BukkitTask
 import org.intellij.lang.annotations.Subst
 import org.slf4j.LoggerFactory
@@ -17,8 +20,8 @@ object WorldManager {
 
     //TODO Make these configurable
     const val CHUNK_RADIUS_LOADING_STEP = 5
-    const val CHUNK_LOADS_PER_BATCH = 200
-    const val MIN_WORLDS_TO_KEEP_READY = 0
+    const val CHUNK_LOADS_PER_BATCH = 50
+    const val MIN_WORLDS_TO_KEEP_READY = 1
 
     private val logger = LoggerFactory.getLogger("world-manager")
     private val gameWorlds: MutableMap<NamespacedKey, BingoWorlds> = ConcurrentHashMap<NamespacedKey, BingoWorlds>()
@@ -38,6 +41,10 @@ object WorldManager {
             futures.add(removeWorlds(worlds))
         }
         CompletableFuture.allOf(*futures.toTypedArray()).join()
+    }
+
+    fun getWorldsForGame(): CompletableFuture<BingoWorlds> {
+        return allWorlds.find { !it.isUsed }.let { if(it != null) CompletableFuture.completedFuture(it) else createNewWorld(BingoWorldsConfig()) }
     }
 
     fun getWorlds(world: World) = getWorlds(world.key)

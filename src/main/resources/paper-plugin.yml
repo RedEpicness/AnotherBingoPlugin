@@ -5,7 +5,7 @@ prefix: ABP
 
 api-version: '${minecraft.version.major}'
 
-load: STARTUP
+load: POSTWORLD
 authors: [Red_Epicness]
 contributors: ["AlwaysGuilty"]
 website: https://github.com/RedEpicness/AnotherBingoPlugin

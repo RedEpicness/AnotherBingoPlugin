@@ -89,7 +89,7 @@ object WorldCommands {
         commandManager.command(
                 builder
                         .literal("stop-loading")
-                        .argument<BingoWorlds>(BingoWorldsCommandArgument.of("worlds"))
+                        .argument(BingoWorldsCommandArgument.of("worlds"))
                         .permission(permissionPrefix + "stop-loading")
                         .handler { context ->
                             val sender = context.sender
@@ -102,7 +102,7 @@ object WorldCommands {
         commandManager.command(
                 builder
                         .literal("remove")
-                        .argument<BingoWorlds>(BingoWorldsCommandArgument.of("worlds"))
+                        .argument(BingoWorldsCommandArgument.of("worlds"))
                         .permission(permissionPrefix + "remove")
                         .handler { context ->
                             val sender = context.sender

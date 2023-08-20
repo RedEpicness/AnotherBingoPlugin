@@ -8,7 +8,7 @@ import net.kyori.adventure.text.Component
 import org.bukkit.command.CommandSender
 
 object GoalCommands {
-    fun registerCommands(commandManager: PaperCommandManager<CommandSender?>) {
+    fun registerCommands(commandManager: PaperCommandManager<CommandSender>) {
         val builder = commandManager.commandBuilder("goals")
         val permissionPrefix = "abp.goals."
 

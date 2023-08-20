@@ -7,9 +7,11 @@ import cloud.commandframework.execution.postprocessor.CommandPostprocessingConte
 import cloud.commandframework.extra.confirmation.CommandConfirmationManager
 import cloud.commandframework.paper.PaperCommandManager
 import io.papermc.paper.plugin.bootstrap.PluginProviderContext
-import me.redepicness.bingo.command.GoalCommands
-import me.redepicness.bingo.command.WorldCommands
+import me.redepicness.bingo.card.CardManager
+import me.redepicness.bingo.command.*
+import me.redepicness.bingo.game.GameManager
 import me.redepicness.bingo.goal.GoalManager
+import me.redepicness.bingo.team.TeamManager
 import me.redepicness.bingo.world.WorldManager
 import me.redepicness.bingo.world.generation.EmptyChunkGenerator
 import me.redepicness.bingo.world.generation.VoidBiomeProvider
@@ -50,16 +52,25 @@ class AnotherBingoPlugin(context: PluginProviderContext) : JavaPlugin() {
             commandManager.command(commandManager.commandBuilder("confirm").handler(confirmationManager.createConfirmationExecutionHandler()))
             WorldCommands.registerCommands(commandManager)
             GoalCommands.registerCommands(commandManager)
+            CardCommands.registerCommands(commandManager)
+            GameCommands.registerCommands(commandManager)
+            TeamCommands.registerCommands(commandManager)
         } catch (e: Exception) {
             e.printStackTrace()
         }
         WorldManager.setup()
         GoalManager.setup()
+        CardManager.setup()
+        GameManager.setup()
+        TeamManager.setup()
     }
 
     override fun onDisable() {
         GoalManager.shutdown()
         WorldManager.shutdown()
+        CardManager.shutdown()
+        GameManager.shutdown()
+        TeamManager.shutdown()
     }
 
     override fun getDefaultWorldGenerator(worldName: String, id: String?): ChunkGenerator {
